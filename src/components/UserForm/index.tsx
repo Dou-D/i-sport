@@ -1,4 +1,5 @@
 import { sport_accustomed, sport_frequency } from '@/config/UserFormInfo';
+import { USER_FORM_KEY } from '@/constants';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   PageContainer,
@@ -7,6 +8,7 @@ import {
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
+import { useModel } from '@umijs/max';
 import { message } from 'antd';
 import moment from 'dayjs';
 import qs from 'qs';
@@ -14,6 +16,8 @@ import { useRef } from 'react';
 import { UserFormType } from './types';
 
 const UserForm: React.FC = () => {
+  const { setUIsUserForm } = useModel('isUserForm');
+
   const formRef = useRef<
     ProFormInstance<{
       name: string;
@@ -27,8 +31,10 @@ const UserForm: React.FC = () => {
         // 点击提交逻辑
         onFinish={async (values) => {
           console.log('values:', values);
-          localStorage.setItem('UserForm', qs.stringify(values));
-
+          if (values) {
+            localStorage.setItem(USER_FORM_KEY, qs.stringify(values));
+            setUIsUserForm(true);
+          }
           const val1 = await formRef.current?.validateFields();
           console.log('validateFields:', val1);
           const val2 =
@@ -48,6 +54,7 @@ const UserForm: React.FC = () => {
         <ProFormSelect
           name="sport_accustomed"
           label="选择您的运动习惯"
+          required
           valueEnum={sport_accustomed}
           rules={[{ required: true, message: '' }]}
         />
@@ -55,6 +62,7 @@ const UserForm: React.FC = () => {
         <ProForm.Group>
           <ProFormDatePicker
             name="birthTime"
+            rules={[{ required: true, message: '' }]}
             label="选择您的出生时间"
             transform={(value) => {
               return {
@@ -64,12 +72,14 @@ const UserForm: React.FC = () => {
           />
           <ProFormText
             width="md"
+            rules={[{ required: true, message: '' }]}
             name="height"
             label="输入您的身高"
             placeholder="单位：cm"
           />
           <ProFormText
             width="md"
+            rules={[{ required: true, message: '' }]}
             name="weight"
             label="输入您的体重"
             placeholder="单位：kg"
@@ -91,12 +101,14 @@ const UserForm: React.FC = () => {
         <ProForm.Group>
           <ProFormSelect
             width="md"
+            rules={[{ required: true, message: '' }]}
             valueEnum={sport_frequency}
             name="sport_frequency"
             label="选择运动频率"
           />
           <ProFormSelect
             width="md"
+            rules={[{ required: true, message: '' }]}
             valueEnum={{
               fifteen: '15min',
               thirty: '30min',
