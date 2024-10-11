@@ -1,49 +1,72 @@
-import { defineConfig } from "@umijs/max";
+import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
   antd: {},
   access: {},
   model: {},
   initialState: {},
+  dva: {},
   request: {},
   layout: {
-    title: "@umijs/max",
+    title: '@umijs/max',
   },
   icons: {
     autoInstall: {},
   },
   routes: [
     {
-      path: "/",
-      redirect: "/home",
+      path: '/',
+      redirect: '/home',
     },
     {
-      name: "首页",
-      path: "/home",
-      component: "./Home",
+      name: '首页',
+      path: '/home',
+      component: './Home',
     },
     {
-      name: "医疗咨询",
-      path: "/consult",
-      component: "./Consult",
+      name: '医疗咨询',
+      path: '/consult',
+      component: './Consult',
     },
     {
-      name: "运动医学",
-      path: "/learning",
-      component: "./Learning",
+      name: '运动医学',
+      path: '/learning',
+      component: './Learning',
     },
     {
-      name: "医学营养",
-      path: "/nourishment",
-      component: "./Nourishment",
+      name: '医学营养',
+      path: '/nourishment',
+      component: './Nourishment',
+      routes: [
+        {
+          name: '基础医学',
+          path: '/nourishment/test',
+          component: './Test',
+        },
+        {
+          name: '食品学',
+          path: '/nourishment/test',
+          component: './Test',
+        },
+        {
+          name: '营养学',
+          path: '/nourishment/test',
+          component: './Test',
+        },
+        {
+          name: '食品分析与检验',
+          path: '/nourishment/test',
+          component: './Test',
+        },
+      ],
     },
     {
-      name: "康复医学",
-      path: "/recover",
-      component: "./Recover",
+      name: '康复医学',
+      path: '/recover',
+      component: './Recover',
     },
   ],
 
-  npmClient: "pnpm",
+  npmClient: 'pnpm',
   tailwindcss: {},
 });
