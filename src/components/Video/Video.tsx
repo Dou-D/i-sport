@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd';
 import ReactPlayer from 'react-player';
 
-export default function Recover() {
+export default function Video() {
   const videoList = [];
   for (let i = 0; i < 9; i++) {
     videoList.push(
