@@ -9,7 +9,11 @@ export default () => {
   if (localStorage.getItem(USER_FORM_KEY)) {
     setUserForm(true);
   }
+  const videoList = [] // 视频链接
+  for (let i = 0; i < 9; i++) {
+    videoList.push('https://cdn.pixabay.com/video/2016/04/18/2849-163375551_large.mp4')
+  }
   return (
-    <PageContainer ghost>{isUserForm ? <Video /> : <UserForm />}</PageContainer>
+    <PageContainer ghost>{isUserForm ? <Video list={videoList}/> : <UserForm />}</PageContainer>
   );
 };
