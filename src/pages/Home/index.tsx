@@ -200,7 +200,7 @@ const HomePage: React.FC = () => {
 
 
   return (
-    <div className="container">
+    <div className="w-full">
       <h1>运动与健康数据图表</h1>
 
       <div className="chart-container">
