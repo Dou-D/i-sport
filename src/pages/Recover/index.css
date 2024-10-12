@@ -1,0 +1,54 @@
+/* 页面容器样式 */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #f0f4f8;*/
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* 标题和状态文本 */
+h1 {
+    color: #4a90e2;
+    margin-bottom: 10px;
+}
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 圆形按钮样式 */
+.circle-button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #4caf50; /* 初始为绿色 */
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.6s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 已打卡状态颜色 */
+.circle-button.checked-in {
+    background-color: #ff7043; /* 已打卡为橙色 */
+}
+
+/* 动画效果：点击后放大 */
+.circle-button.animate {
+    transform: scale(1.2); /* 放大 */
+}
+
+/* 鼠标悬停效果 */
+.circle-button:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
