@@ -40,23 +40,23 @@ export default defineConfig({
       routes: [
         {
           name: '基础医学',
-          path: '/nourishment/test',
-          component: './Test',
+          path: '/nourishment/basic_medicine',
+          component: './Nourishment/Basic Medicine',
         },
         {
           name: '食品学',
-          path: '/nourishment/test',
-          component: './Test',
+          path: '/nourishment/bromatology',
+          component: './Nourishment/Bromatology',
         },
         {
           name: '营养学',
-          path: '/nourishment/test',
-          component: './Test',
+          path: '/nourishment/nutriology',
+          component: './Nourishment/Nutriology',
         },
         {
           name: '食品分析与检验',
-          path: '/nourishment/test',
-          component: './Test',
+          path: '/nourishment/analysis',
+          component: './Nourishment/Analysis',
         },
       ],
     },

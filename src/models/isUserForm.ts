@@ -1,12 +1,13 @@
 // 全局共享数据示例
 import { useState } from 'react';
 
-const useUser = () => {
-  const [isUserForm, setUIsUserForm] = useState(false);
+const useUserForm = () => {
+  const [isUserForm, setUserForm] = useState(false);
+
   return {
     isUserForm,
-    setUIsUserForm,
+    setUserForm,
   };
 };
 
-export default useUser;
+export default useUserForm;

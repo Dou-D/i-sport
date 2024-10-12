@@ -1,7 +1,10 @@
-import { PageContainer } from "@ant-design/pro-components";
+import { PageContainer } from '@ant-design/pro-components';
+import { Outlet } from '@umijs/max';
 
-export default function Test() {
-    return <PageContainer ghost>
-        
+export default function Test({ children }: { children: React.ReactElement }) {
+  return (
+    <PageContainer ghost>
+      <Outlet context={children} />
     </PageContainer>
+  );
 }

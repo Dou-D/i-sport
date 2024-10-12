@@ -16,7 +16,7 @@ import { useRef } from 'react';
 import { UserFormType } from './types';
 
 const UserForm: React.FC = () => {
-  const { setUIsUserForm } = useModel('isUserForm');
+  const { setUserForm } = useModel('isUserForm');
 
   const formRef = useRef<
     ProFormInstance<{
@@ -33,7 +33,7 @@ const UserForm: React.FC = () => {
           console.log('values:', values);
           if (values) {
             localStorage.setItem(USER_FORM_KEY, qs.stringify(values));
-            setUIsUserForm(true);
+            setUserForm(true);
           }
           const val1 = await formRef.current?.validateFields();
           console.log('validateFields:', val1);
@@ -72,14 +72,18 @@ const UserForm: React.FC = () => {
           />
           <ProFormText
             width="md"
-            rules={[{ required: true, message: '' }]}
+            rules={[
+              { required: true, message: '只能填写数字', pattern: /^\d+$/ },
+            ]}
             name="height"
             label="输入您的身高"
             placeholder="单位：cm"
           />
           <ProFormText
             width="md"
-            rules={[{ required: true, message: '' }]}
+            rules={[
+              { required: true, message: '只能填写数字', pattern: /^\d+$/ },
+            ]}
             name="weight"
             label="输入您的体重"
             placeholder="单位：kg"
