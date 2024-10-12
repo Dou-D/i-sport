@@ -15,6 +15,7 @@
     "@ant-design/pro-components": "^2.4.4",
     "@umijs/max": "^4.3.25",
     "antd": "^5.4.0",
+    "echarts-for-react": "^3.0.2",
     "react-player": "^2.16.0"
   },
   "devDependencies": {
