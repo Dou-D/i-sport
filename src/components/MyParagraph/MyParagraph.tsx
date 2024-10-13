@@ -6,7 +6,7 @@ const { Paragraph } = Typography;
 const MyParagraph: React.FC<IProps> = (props) => {
   return (
     <>
-      <Paragraph className="indent-8">{props.children}</Paragraph>
+      <Paragraph className="indent-8 leading-10 text-lg">{props.children}</Paragraph>
     </>
   );
 };

@@ -1,8 +1,10 @@
 import MyParagraph from '@/components/MyParagraph/MyParagraph';
-import { Divider, Table, TableProps, Typography } from 'antd';
+import { Divider, Table, TableProps, Typography, Image } from 'antd';
 import { bromatologyData } from './data';
 import { BromatologyType } from './types';
-
+import food from '@/assets/food.webp'
+import foodType from '@/assets/foodType.jpg'
+import foodDevelop from '@/assets/foodDevelop.png'
 const { Title } = Typography;
 
 const columns: TableProps<BromatologyType>['columns'] = [
@@ -23,12 +25,14 @@ export default function BromatologyPage() {
       <Typography>
         <Title>食品学专业介绍</Title>
         <Divider />
+        <Image src={food} />
         <MyParagraph>
           <a href={'https://baike.baidu.com/item/%E9%A3%9F%E5%93%81%E7%A7%91%E5%AD%A6/5653074'}>食品科学</a>关键于跨学科，包括:
           化学类（有机化学、生物化学、食品化学、分析化学等）、生物学、食品科学、食品工程、微生物学、化工和食品技术、肉制品加工、乳制品加工、蛋制品加工等。
         </MyParagraph>
         <Title>分类</Title>
         <Divider />
+        <Image src={foodType} />
         <MyParagraph>
           食品科学大致分为食品化学、食品工程、食品微生物学等几个分支。　
         </MyParagraph>
@@ -45,6 +49,8 @@ export default function BromatologyPage() {
           食品科学专业的学生将学习食品的化学组成、加工技术、质量控制、食品安全法规等课程，以及进行实验研究和生产实践，以掌握食品科学领域的最新技术和发展趋势。
         </MyParagraph>
         <Title>发展前景</Title>
+        <Divider />
+        <Image src={foodDevelop} />
         <MyParagraph>
           食品科学专业的毕业生可以在食品生产企业、质量监督部门、研究机构、教育机构等多个领域工作，从事食品研发、质量控制、生产管理、市场监管、教育科研等工作。随着人们对健康饮食的追求和食品科技的进步，食品科学专业的就业前景广阔。
         </MyParagraph>

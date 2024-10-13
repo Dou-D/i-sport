@@ -117,7 +117,7 @@ const ChatBox: React.FC = () => {
         <button onClick={handleSend}>发送</button>
       </div>
     </div>
-  );
+  );  
 };
 
 export default ChatBox;
