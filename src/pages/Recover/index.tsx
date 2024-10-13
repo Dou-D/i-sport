@@ -1,6 +1,6 @@
 import Video from '@/components/Video';
 import { USER_TOKEN_CARD } from '@/constants';
-import { message } from 'antd';
+import { Affix, Button, Image, message } from 'antd';
 import { useState } from 'react';
 import './index.css';
 
@@ -41,20 +41,42 @@ export default function Recover() {
       setIsAnimating(false); // 动画完成后重置
     }
   };
+  const [top, setTop] = useState<number>(100);
 
   return (
-    <div className="container">
-      <p>{isCheckedIn ? '已打卡 ✔️' : '尚未打卡 ❌'}</p>
+    <>
+      <Affix offsetTop={top}>
+        <Button
+          type="dashed"
+          onClick={() => {
+            setTop(top + 30);
+            message.success(isCheckedIn ? '今日已打卡，继续保持！ ' : '请持续今日的打卡')
+          }}
+        >
+          最困难的事情就是下定决心行动,剩下的只不过是坚持而已
+        </Button>
+      </Affix>
+      <Image
+        height={500}
+        width={1050}
+        src={
+          'https://cdn.pixabay.com/photo/2019/04/06/02/20/cyclist-4106536_1280.jpg'
+        }
+        style={{ margin: '0 auto' }}
+      ></Image>
+      <div className="container" style={{'margin': '30px auto'}}>
+        <p>{isCheckedIn ? '已打卡 ✔️' : '尚未打卡 ❌'}</p>
 
-      <div
-        className={`circle-button ${isAnimating ? 'animate' : ''} ${
-          isCheckedIn ? 'checked-in' : ''
-        }`}
-        onClick={handleCheckIn}
-      >
-        {isCheckedIn ? '完成' : '打卡'}
+        <div
+          className={`circle-button ${isAnimating ? 'animate' : ''} ${
+            isCheckedIn ? 'checked-in' : ''
+          }`}
+          onClick={handleCheckIn}
+        >
+          {isCheckedIn ? '完成' : '打卡'}
+        </div>
+        <Video list={videoList}></Video>
       </div>
-      <Video list={videoList}></Video>
-    </div>
+    </>
   );
 }
