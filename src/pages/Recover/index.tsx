@@ -1,26 +1,33 @@
+import Video from '@/components/Video';
 import { USER_TOKEN_CARD } from '@/constants';
 import { message } from 'antd';
 import { useState } from 'react';
 import './index.css';
-import Video from '@/components/Video';
 
 export default function Recover() {
-  const today = new Date().toDateString()
+  const today = new Date().toDateString();
 
   const [isCheckedIn, setIsCheckedIn] = useState(
-    localStorage.getItem(USER_TOKEN_CARD) === today
+    localStorage.getItem(USER_TOKEN_CARD) === today,
   ); // 状态：是否已打卡
   const [isAnimating, setIsAnimating] = useState(false); // 控制动画效果
 
-  const videoList = [] // 视频链接
-  for (let i = 0; i < 9; i++) {
-    videoList.push('https://cdn.pixabay.com/video/2016/04/18/2849-163375551_large.mp4')
-  }
+  const videoList = [
+    'https://cdn.pixabay.com/video/2015/08/13/445-136216234_tiny.mp4',
+    'https://cdn.pixabay.com/video/2020/04/04/35009-405620783_tiny.mp4',
+    'https://cdn.pixabay.com/video/2022/12/18/143431-782373969_tiny.mp4',
+    'https://cdn.pixabay.com/video/2022/12/18/143436-782373975_large.mp4',
+    'https://cdn.pixabay.com/video/2023/07/17/171959-846471974_large.mp4',
+    'https://cdn.pixabay.com/video/2022/07/15/124251-730508536_large.mp4',
+    'https://cdn.pixabay.com/video/2020/01/14/31247-385265613_large.mp4',
+    'https://cdn.pixabay.com/video/2019/04/20/22913-336128301_large.mp4',
+    'https://cdn.pixabay.com/video/2022/03/14/110734-688648666_large.mp4',
+  ]; // 视频链接
 
   const handleCheckIn = () => {
     // 防止多次点击打卡
     if (!isAnimating) {
-      setIsAnimating(true)
+      setIsAnimating(true);
 
       if (localStorage.getItem(USER_TOKEN_CARD) !== today) {
         localStorage.setItem(USER_TOKEN_CARD, new Date().toDateString());
