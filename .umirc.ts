@@ -10,6 +10,7 @@ export default defineConfig({
   layout: {
     title: '@umijs/max',
   },
+  esbuildMinifyIIFE: true,
   icons: {
     autoInstall: {},
   },
