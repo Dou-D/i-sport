@@ -1,6 +1,7 @@
 import { fetchData } from '@/services/chat/route';
 import React, { useState } from 'react';
 import './index.css';
+import { Button } from 'antd';
 
 interface ChatMessage {
   avatar: string;
@@ -28,19 +29,6 @@ const ChatBox: React.FC = () => {
   // const [text, setText] = useState('');
   const [input, setInput] = useState('');
   const decoder = new TextDecoder('utf-8');
-  const handleSend = () => {
-    if (input.trim() === '') return;
-
-    const newMessage: ChatMessage = {
-      avatar: 'B',
-      message: input,
-      direction: 'right',
-    };
-
-    setMessages([...messages, newMessage]);
-    setInput('');
-    handleSubmit();
-  };
   const handleSubmit = async () => {
     const response = await fetchData(input);
     if (!response.ok) {
@@ -48,8 +36,6 @@ const ChatBox: React.FC = () => {
       console.error('Failed to fetch data:', response.statusText);
       return;
     }
-    console.log(response);
-
     const reader = response.body?.getReader();
     let fullResponse = '';
 
@@ -65,7 +51,6 @@ const ChatBox: React.FC = () => {
             ]);
             return;
           }
-          console.log(value, "value");
           
           const decodedValue = decoder.decode(value, { stream: true });
           const cleanedValue = decodedValue.replace(/data:\s*/g, ''); // 去除 "data: " 标识
@@ -88,11 +73,25 @@ const ChatBox: React.FC = () => {
     // 开始读取流
     read();
   };
+  const handleSend = () => {
+    if (input.trim() === '') return;
+
+    const newMessage: ChatMessage = {
+      avatar: 'B',
+      message: input,
+      direction: 'right',
+    };
+
+    setMessages([...messages, newMessage]);
+    setInput('');
+    handleSubmit();
+  };
+  
   return (
     <div className="chat-container">
       <div className="message-list">
         {messages.map((msg, index) => (
-          <div key={index} className={`chat-message ${msg.direction}`}>
+          <div key={index} className={chat-message ${msg.direction}}>
             <div className="avatar">{msg.avatar}</div>
             <div className="message">{msg.message}</div>
           </div>
@@ -114,7 +113,7 @@ const ChatBox: React.FC = () => {
           onKeyUp={(e) => e.key === 'Enter' && handleSend()}
           placeholder="输入消息..."
         />
-        <button onClick={handleSend}>发送</button>
+        <Button onClick={handleSend}>发送</Button>
       </div>
     </div>
   );
