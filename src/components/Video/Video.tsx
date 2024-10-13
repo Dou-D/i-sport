@@ -1,12 +1,32 @@
 import { Col, Row } from 'antd';
 import ReactPlayer from 'react-player';
 
-export default function Video({list}) {
+import { useState, useEffect } from 'react';
+
+export default function Video({ list }) {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const videoList = [];
 
-  for(let i = 0; i < list.length; i++) {
+  let num = null
+  if (screenWidth > 700) {
+    num = 7
+  }
+  for (let i = 0; i < list.length; i++) {
     videoList.push(
-      <Col span={7} style={{ margin: '10px' }} >
+      <Col span={num} style={{ margin: '10px' }}>
         <ReactPlayer
           url={list[i]} //地址
           width="100%" //宽度
