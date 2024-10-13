@@ -5,8 +5,10 @@ import './index.css';
 import Video from '@/components/Video';
 
 export default function Recover() {
+  const today = new Date().toDateString()
+
   const [isCheckedIn, setIsCheckedIn] = useState(
-    localStorage.getItem(USER_TOKEN_CARD),
+    localStorage.getItem(USER_TOKEN_CARD) === today
   ); // 状态：是否已打卡
   const [isAnimating, setIsAnimating] = useState(false); // 控制动画效果
 
@@ -15,14 +17,13 @@ export default function Recover() {
     videoList.push('https://cdn.pixabay.com/video/2016/04/18/2849-163375551_large.mp4')
   }
 
-
   const handleCheckIn = () => {
     // 防止多次点击打卡
     if (!isAnimating) {
-      setIsAnimating(true);
+      setIsAnimating(true)
 
-      if (localStorage.getItem(USER_TOKEN_CARD) === null) {
-        localStorage.setItem(USER_TOKEN_CARD, new Date());
+      if (localStorage.getItem(USER_TOKEN_CARD) !== today) {
+        localStorage.setItem(USER_TOKEN_CARD, new Date().toDateString());
         message.success('打卡成功哦！');
         setTimeout(() => {
           setIsCheckedIn(!isCheckedIn); // 切换打卡状态
