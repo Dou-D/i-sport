@@ -1,4 +1,4 @@
-import { sport_accustomed, sport_frequency } from '@/config/UserFormInfo';
+import { sport_accustomed, sport_frequency, sport_duration, sport_intensity } from '@/config/UserFormInfo';
 import { USER_FORM_KEY } from '@/constants';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {
@@ -25,6 +25,7 @@ const UserForm: React.FC = () => {
       useMode?: string;
     }>
   >();
+
   return (
     <PageContainer ghost>
       <ProForm<UserFormType>
@@ -92,11 +93,7 @@ const UserForm: React.FC = () => {
 
         <ProFormSelect
           width="md"
-          valueEnum={{
-            weak: '弱',
-            middle: '中等',
-            strong: '强',
-          }}
+          valueEnum={sport_intensity}
           name="sport_intensity"
           label="选择运动强度"
           rules={[{ required: true, message: '' }]}
@@ -113,12 +110,7 @@ const UserForm: React.FC = () => {
           <ProFormSelect
             width="md"
             rules={[{ required: true, message: '' }]}
-            valueEnum={{
-              fifteen: '15min',
-              thirty: '30min',
-              'forty-five': '45min',
-              sixty: '60min',
-            }}
+            valueEnum={sport_duration}
             name="sport_duration"
             label="选择每次运动持续时间"
           />
