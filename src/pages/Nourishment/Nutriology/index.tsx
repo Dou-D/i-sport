@@ -66,6 +66,7 @@ export default function FoodSciencePage() {
           食品科学专业的学生将学习食品的化学组成、加工技术、质量控制、食品安全法规等课程，以及进行实验研究和生产实践，以掌握食品科学领域的最新技术和发展趋势。
         </MyParagraph>
         <Title>我国成就</Title>
+        <Divider />
         <Paragraph>
           1938年中国中华医学会特刊第10号发表<a href='https://www.doc88.com/p-7347705926314.html' target='_blank'>《中国民众最低限度之营养需要》</a>。
         </Paragraph>

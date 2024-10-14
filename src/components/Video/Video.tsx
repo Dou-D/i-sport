@@ -1,4 +1,4 @@
-import { Col, Row } from 'antd';
+import { Col, message, Row } from 'antd';
 import ReactPlayer from 'react-player';
 
 import { useState, useEffect } from 'react';
@@ -37,10 +37,11 @@ export default function Video({ list }) {
       </Col>,
     );
   }
-
+  
   return (
     <>
-      <Row>{videoList}</Row>
+      <Row>{videoList}
+      </Row>
     </>
   );
 }

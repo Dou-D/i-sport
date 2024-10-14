@@ -1,4 +1,5 @@
 import { fetchData } from '@/services/chat/route';
+import { Button, Input } from 'antd';
 import React, { useState } from 'react';
 import './index.css';
 
@@ -9,18 +10,18 @@ interface ChatMessage {
 }
 
 const initialMessages: ChatMessage[] = [
-  { avatar: 'AI', message: '你好，有什么可以帮助的吗？', direction: 'left' },
-//   {
-//     avatar: 'B',
-//     message: '您好，我想咨询一下康复医疗的服务。',
-//     direction: 'right',
-//   },
-//   {
-//     avatar: 'AI',
-//     message: '好的，请问您具体需要了解哪方面的内容？',
-//     direction: 'left',
-//   },
-//   { avatar: 'B', message: '我想了解一下理疗的具体流程。', direction: 'right' },
+  { avatar: 'AI', message: '您好，有什么可以帮助的吗？', direction: 'left' },
+  //   {
+  //     avatar: 'B',
+  //     message: '您好，我想咨询一下康复医疗的服务。',
+  //     direction: 'right',
+  //   },
+  //   {
+  //     avatar: 'AI',
+  //     message: '好的，请问您具体需要了解哪方面的内容？',
+  //     direction: 'left',
+  //   },
+  //   { avatar: 'B', message: '我想了解一下理疗的具体流程。', direction: 'right' },
 ];
 
 const ChatBox: React.FC = () => {
@@ -65,8 +66,8 @@ const ChatBox: React.FC = () => {
             ]);
             return;
           }
-          console.log(value, "value");
-          
+          console.log(value, 'value');
+
           const decodedValue = decoder.decode(value, { stream: true });
           const cleanedValue = decodedValue.replace(/data:\s*/g, ''); // 去除 "data: " 标识
 
@@ -107,17 +108,18 @@ const ChatBox: React.FC = () => {
       </div>
 
       <div className="input-container">
-        <input
-          type="text"
+        <Input
+          placeholder="输入消息..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyUp={(e) => e.key === 'Enter' && handleSend()}
-          placeholder="输入消息..."
         />
-        <button onClick={handleSend}>发送</button>
+        <Button onClick={handleSend} size="large">
+          发送
+        </Button>
       </div>
     </div>
-  );  
+  );
 };
 
 export default ChatBox;

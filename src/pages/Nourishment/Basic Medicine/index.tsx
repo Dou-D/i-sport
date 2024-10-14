@@ -81,6 +81,7 @@ export default function BasicMedicinePage() {
           2020年，教育部颁布<a href='https://xz.chsi.com.cn/xz/zyts/202108/20210805/2095444507.html' target='_blank'>《普通高等学校本科专业目录（2020版）》</a>，基础医学专业与生物医学专业、生物医学科学专业共同组成基础医学类专业，其中基础医学专业代码为100101K，授予医学学士学位，学制为五年。
         </Paragraph>
         <Title>发展前景</Title>
+        <Divider />
         <Image src={future} />
         <MyParagraph>
           该专业培养具备自然科学、生命科学和医学科学基础理论知识和实验技能，熟悉基础医学先进仪器设备，具有较高的外语水平、一定的教学实践能力和开展实验研究的能力，自主学习、独立分析问题和解决问题的能力的基础医学高级专门人才。
