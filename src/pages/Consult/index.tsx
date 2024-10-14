@@ -11,16 +11,6 @@ interface ChatMessage {
 
 const initialMessages: ChatMessage[] = [
   { avatar: 'AI', message: '您好，有什么可以帮助的吗？', direction: 'left' },
-    {
-      avatar: 'B',
-      message: '您好，我想咨询一下康复医疗的服务。',
-      direction: 'right',
-    },
-    {
-      avatar: 'AI',
-      message: "康复医疗服务是一个涉及多学科合作的领域，旨在帮助患者恢复身体功能、提高生活质量，并促进其重返社会。根据国家卫生健康委员会发布的信息，康复医疗服务正在逐步完善和发展。康复医疗服务的目标是到2022年，每10万人口康复医师达到6人、康复治疗师达到10人，到2025年，每10万人口康复医师达到8人、康复治疗师达到12人，实现全方位全周期的康复医疗服务",
-      direction: 'left',
-    },
 ];
 
 const ChatBox: React.FC = () => {
@@ -28,19 +18,6 @@ const ChatBox: React.FC = () => {
   // const [text, setText] = useState('');
   const [input, setInput] = useState('');
   const decoder = new TextDecoder('utf-8');
-  const handleSend = () => {
-    if (input.trim() === '') return;
-
-    const newMessage: ChatMessage = {
-      avatar: 'B',
-      message: input,
-      direction: 'right',
-    };
-
-    setMessages([...messages, newMessage]);
-    setInput('');
-    handleSubmit();
-  };
   const handleSubmit = async () => {
     const response = await fetchData(input);
     if (!response.ok) {
@@ -88,6 +65,20 @@ const ChatBox: React.FC = () => {
     // 开始读取流
     read();
   };
+  const handleSend = () => {
+    if (input.trim() === '') return;
+
+    const newMessage: ChatMessage = {
+      avatar: 'B',
+      message: input,
+      direction: 'right',
+    };
+
+    setMessages([...messages, newMessage]);
+    setInput('');
+    handleSubmit();
+  };
+  
   return (
     <div className="chat-container">
       <div className="message-list">

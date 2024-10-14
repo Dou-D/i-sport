@@ -46,7 +46,7 @@ export default function Recover() {
     message.info('最困难的事情就是下定决心行动,剩下的只不过是坚持而已');
   }, [])
   return (
-    <PageContainer>
+    <PageContainer ghost className='text-center'>
       <Image src="https://cdn.pixabay.com/photo/2019/04/06/02/20/cyclist-4106536_1280.jpg"></Image>
       <div className="container" style={{ margin: '30px auto' }}>
         <p>{isCheckedIn ? '已打卡 ✔️' : '尚未打卡 ❌'}</p>

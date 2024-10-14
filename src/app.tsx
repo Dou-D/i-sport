@@ -22,14 +22,16 @@ export async function getInitialState(): Promise<{ name: string }> {
 }
 
 const userData = localStorage.getItem(USER_FORM_KEY);
+const [open, setOpen] = useState(false);
 
 export const layout: RunTimeLayoutConfig = () => {
+
   return {
     logo: logo,
     menu: {
       locale: false,
     },
-    title: 'i运动',
+    title: '爱sport',
     rightRender: () => {
       if (!userData) {
         return;
@@ -43,7 +45,6 @@ export const layout: RunTimeLayoutConfig = () => {
         sport_intensity,
         weight,
       } = qs.parse(userData) as unknown as UserFormType;
-      const [open, setOpen] = useState(false);
 
       const onClose = () => {
         setOpen(false);
@@ -54,7 +55,7 @@ export const layout: RunTimeLayoutConfig = () => {
       const handleDelFormData = () => {
         localStorage.removeItem(USER_FORM_KEY);
         history.replace('/learning');
-        history.go(0)
+        history.go(0);
       };
       return (
         <div className="w-full text-center">
