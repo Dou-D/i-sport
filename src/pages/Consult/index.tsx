@@ -11,17 +11,16 @@ interface ChatMessage {
 
 const initialMessages: ChatMessage[] = [
   { avatar: 'AI', message: '您好，有什么可以帮助的吗？', direction: 'left' },
-  //   {
-  //     avatar: 'B',
-  //     message: '您好，我想咨询一下康复医疗的服务。',
-  //     direction: 'right',
-  //   },
-  //   {
-  //     avatar: 'AI',
-  //     message: '好的，请问您具体需要了解哪方面的内容？',
-  //     direction: 'left',
-  //   },
-  //   { avatar: 'B', message: '我想了解一下理疗的具体流程。', direction: 'right' },
+    {
+      avatar: 'B',
+      message: '您好，我想咨询一下康复医疗的服务。',
+      direction: 'right',
+    },
+    {
+      avatar: 'AI',
+      message: "康复医疗服务是一个涉及多学科合作的领域，旨在帮助患者恢复身体功能、提高生活质量，并促进其重返社会。根据国家卫生健康委员会发布的信息，康复医疗服务正在逐步完善和发展。康复医疗服务的目标是到2022年，每10万人口康复医师达到6人、康复治疗师达到10人，到2025年，每10万人口康复医师达到8人、康复治疗师达到12人，实现全方位全周期的康复医疗服务",
+      direction: 'left',
+    },
 ];
 
 const ChatBox: React.FC = () => {
