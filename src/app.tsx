@@ -20,10 +20,7 @@ import dayjs from 'dayjs';
 export async function getInitialState(): Promise<{ name: string }> {
   return { name: '@umijs/max' };
 }
-const gridStyle: React.CSSProperties = {
-  width: '100%',
-  textAlign: 'center',
-};
+
 const userData = localStorage.getItem(USER_FORM_KEY);
 
 export const layout: RunTimeLayoutConfig = () => {
