@@ -1,4 +1,9 @@
-import { sport_accustomed, sport_frequency, sport_duration, sport_intensity } from '@/config/UserFormInfo';
+import {
+  sport_accustomed,
+  sport_duration,
+  sport_frequency,
+  sport_intensity,
+} from '@/config/UserFormInfo';
 import { USER_FORM_KEY } from '@/constants';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {
@@ -42,6 +47,7 @@ const UserForm: React.FC = () => {
             await formRef.current?.validateFieldsReturnFormatValue?.();
           console.log('validateFieldsReturnFormatValue:', val2);
           message.success('提交成功');
+          history.go(0)
         }}
         formRef={formRef}
         params={{ id: '100' }}
